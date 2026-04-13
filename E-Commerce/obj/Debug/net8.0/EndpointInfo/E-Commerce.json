@@ -229,7 +229,7 @@
         }
       }
     },
-    "/api/Order/details/{oederId}": {
+    "/api/Order/details/{orderId}": {
       "get": {
         "tags": [
           "Order"
@@ -237,18 +237,11 @@
         "parameters": [
           {
             "name": "orderId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "oederId",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],

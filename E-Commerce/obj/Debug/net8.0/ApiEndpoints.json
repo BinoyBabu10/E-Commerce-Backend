@@ -140,7 +140,7 @@
   {
     "ContainingType": "E_Commerce.Controllers.OrderController",
     "Method": "GetOrderById",
-    "RelativePath": "api/Order/details/{oederId}",
+    "RelativePath": "api/Order/details/{orderId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -148,11 +148,6 @@
       {
         "Name": "orderId",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "oederId",
-        "Type": "",
         "IsRequired": true
       }
     ],

@@ -33,6 +33,8 @@ namespace E_Commerce.Controllers
 
         }
         [HttpDelete("{userId}/{productId}")]
+        [Authorize(Roles = "Admin,Customer")]
+
         public async Task<IActionResult> RemoveFromCart(int userId, int productId)
         {
             var result = await _cartService.RemoveFromCartAsync(userId, productId);
@@ -42,6 +44,8 @@ namespace E_Commerce.Controllers
 
         }
         [HttpDelete("clear/{userId}")]
+        [Authorize(Roles = "Admin,Customer")]
+
         public async Task<IActionResult> ClearCart(int userId)
         {
                        var result = await _cartService.ClearCartAsync(userId);

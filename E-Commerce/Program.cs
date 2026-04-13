@@ -73,7 +73,7 @@ namespace E_Commerce
 
             app.UseAuthentication();  // ?? ADD THIS
             app.UseAuthorization();
-
+            app.UseMiddleware<E_Commerce.Middleware.ExceptionMiddleware>();
             app.MapControllers();
 
             app.Run();

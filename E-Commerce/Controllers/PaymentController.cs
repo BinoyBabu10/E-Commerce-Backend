@@ -1,5 +1,6 @@
 ﻿using E_Commerce.DTOS;
 using E_Commerce.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,8 @@ namespace E_Commerce.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,Customer")]
+
         public async Task<IActionResult> ProcessPayment(PaymentDto dto)
         {
             var result = await _paymentService.ProcessPaymentAsync(dto);
