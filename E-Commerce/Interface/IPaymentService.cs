@@ -1,7 +1,9 @@
-﻿namespace E_Commerce.Interface
+﻿using E_Commerce.DTOS;
+
+namespace E_Commerce.Interface
 {
     public interface IPaymentService
     {
-        Task<string> ProcessPaymentAsync(int orderId, string paymentMethod);
+        Task<string> ProcessPaymentAsync(PaymentDto dto);
     }
 }

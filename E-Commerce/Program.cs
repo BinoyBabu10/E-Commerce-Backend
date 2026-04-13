@@ -1,5 +1,7 @@
 
+using E_Commerce.Interface;
 using E_Commerce.Models;
+using E_Commerce.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce
@@ -18,6 +20,11 @@ namespace E_Commerce
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<EDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cstring")));
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<ICartService, CartService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddScoped<IPaymentService, PaymentService>();
 
             var app = builder.Build();
 
