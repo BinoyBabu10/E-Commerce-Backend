@@ -2,7 +2,11 @@
 using E_Commerce.Interface;
 using E_Commerce.Models;
 using E_Commerce.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace E_Commerce
 {
@@ -25,6 +29,36 @@ namespace E_Commerce
             builder.Services.AddScoped<ICartService, CartService>();
             builder.Services.AddScoped<IOrderService, OrderService>();
             builder.Services.AddScoped<IPaymentService, PaymentService>();
+            // builder.Services.AddScoped<IAuthService, AuthService>();
+            builder.Services.AddSwaggerGen();
+    
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Enter JWT token like: Bearer {your_token}"
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+            });
 
             var app = builder.Build();
 
@@ -37,8 +71,8 @@ namespace E_Commerce
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();  // ?? ADD THIS
             app.UseAuthorization();
-
 
             app.MapControllers();
 

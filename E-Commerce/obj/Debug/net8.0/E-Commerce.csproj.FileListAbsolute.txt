@@ -146,3 +146,4 @@ C:\Users\bbino\OneDrive\Documents\Projects\E-Commerce\E-Commerce\E-Commerce\obj\
 C:\Users\bbino\OneDrive\Documents\Projects\E-Commerce\E-Commerce\E-Commerce\obj\Debug\net8.0\E-Commerce.genruntimeconfig.cache
 C:\Users\bbino\OneDrive\Documents\Projects\E-Commerce\E-Commerce\E-Commerce\obj\Debug\net8.0\ref\E-Commerce.dll
 C:\Users\bbino\OneDrive\Documents\Projects\E-Commerce\E-Commerce\E-Commerce\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\bbino\OneDrive\Documents\Projects\E-Commerce\E-Commerce\E-Commerce\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -539,6 +539,10 @@
           "password": {
             "type": "string",
             "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -592,6 +596,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter JWT token like: Bearer {your_token}",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }
